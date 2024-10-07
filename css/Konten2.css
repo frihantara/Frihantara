@@ -139,9 +139,10 @@ body {
 }
 
 .post-text {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   line-height: 1.7rem;
-  margin: 1.2rem 0;
+  margin: 1.7rem 0;
+  line-height: 1.9rem;
   text-align: justify;
   font-family: "Times New Roman", Times, serif;
 }
@@ -288,10 +289,10 @@ footer .credit a {
   }
 
   .post-text {
-    margin: 5px auto;
+    margin: 1.7rem auto;
     width: 95%;
   }
-
+  
   .sub-heading {
     margin: 0 auto;
     width: 95%;
