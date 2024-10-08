@@ -153,6 +153,62 @@ body {
   display: block;
 }
 
+/* Prov */
+.pagination {
+  display: flex;
+  justify-content: center; /* Mepet ke kanan, bisa diganti 'center' untuk tengah */
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.prev {
+  margin-left: 20px;
+}
+
+.pagination a {
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  align-items: center;
+}
+
+.prev,
+.next {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.prev .arrow,
+.next .arrow {
+  font-size: 20px;
+  color: black;
+  margin: 0 10px;
+}
+
+.prev .text-container,
+.next .text-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  color: #c00000; /* Warna merah mirip */
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.title {
+  font-size: 14px;
+  color: #000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+
 /* footer */
 footer {
   background-color: var(--primary);
