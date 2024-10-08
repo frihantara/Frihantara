@@ -147,6 +147,61 @@ body {
   font-family: "Times New Roman", Times, serif;
 }
 
+/* Prov */
+.pagination {
+  display: flex;
+  justify-content: flex-end; /* Mepet ke kanan, bisa diganti 'center' untuk tengah */
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.next {
+  margin-left: 20px;
+}
+
+.pagination a {
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  align-items: center;
+}
+
+.prev,
+.next {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.prev .arrow,
+.next .arrow {
+  font-size: 20px;
+  color: black;
+  margin: 0 10px;
+}
+
+.prev .text-container,
+.next .text-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  color: #c00000; /* Warna merah mirip */
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.title {
+  font-size: 14px;
+  color: #000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
 /* footer */
 footer {
   background-color: var(--primary);
@@ -239,6 +294,17 @@ footer .credit a {
     margin: 0 auto;
     width: 95%;
   }
+
+  .pagination {
+    width: 90%; /* Kurangi lebar pagination untuk layar lebih kecil */
+    justify-content: center; /* Pusatkan tombol pada layar lebih kecil */
+    padding: 8px 0;
+  }
+
+  .next {
+    font-size: 14px; /* Perkecil ukuran font tombol */
+    margin-left: 15px; /* Kurangi margin */
+  }
 }
 
 /* mobile */
@@ -296,5 +362,15 @@ footer .credit a {
   .sub-heading {
     margin: 0 auto;
     width: 95%;
+  }
+   .pagination {
+    flex-direction: column; /* Atur pagination menjadi vertikal pada layar sangat kecil */
+    align-items: flex-end; /* Tetap di kanan pada layar mobile */
+    width: 100%;
+  }
+
+  .next {
+    font-size: 12px; /* Perkecil ukuran font untuk layar mobile */
+    margin: 5px 0; /* Beri jarak vertikal pada tombol */
   }
 }
