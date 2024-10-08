@@ -301,6 +301,15 @@ footer .credit a {
     margin: 0 auto;
     width: 95%;
   }
+  .pagination {
+    width: 90%; /* Kurangi lebar pagination untuk layar lebih kecil */
+    padding: 8px 0;
+  }
+
+  .prev {
+    font-size: 14px; /* Perkecil ukuran font tombol */
+    margin-right: 15px; /* Kurangi margin pada layar lebih kecil */
+  }
 }
 
 /* mobile */
@@ -358,5 +367,16 @@ footer .credit a {
   .sub-heading {
     margin: 0 auto;
     width: 95%;
+  }
+
+  .pagination {
+    flex-direction: column; /* Atur pagination menjadi vertikal pada layar sangat kecil */
+    align-items: flex-start; /* Tetap di kiri pada layar mobile */
+    width: 100%;
+  }
+
+  .prev {
+    font-size: 12px; /* Perkecil ukuran font untuk layar mobile */
+    margin: 5px 0; /* Beri jarak vertikal pada tombol */
   }
 }
