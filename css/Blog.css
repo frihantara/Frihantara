@@ -238,7 +238,7 @@ footer .credit a {
 /* tablet */
 @media (max-width: 768px) {
   html {
-    font-size: 62.5%;
+    font-size: 65%;
   }
 
   .blog-box {
@@ -282,7 +282,7 @@ footer .credit a {
 /* mobile */
 @media (max-width: 450px) {
   html {
-    font-size: 55%;
+    font-size: 60%;
   }
 
   .blog-box {
