@@ -404,10 +404,11 @@ footer .credit a {
 
   hero .content .cta {
   width: 100%;
-  padding: 15px 30px;
+  padding: 1rem 3rem;
   position: absolute;
-  z-index: 99999;
+  z-index: 10000;
   border: 2px solid red;
+  display: block;
 }
 
   .menu p {
