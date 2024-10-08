@@ -9,10 +9,14 @@ document.querySelector("#hamburger-menu").onclick = () => {
 const hamburger = document.querySelector("#hamburger-menu");
 
 document.addEventListener("click", function (e) {
+  console.log(e.target); //
   if (!hamburger.contains(e.target) && !navbarNav.contains(e.target)) {
     navbarNav.classList.remove("active");
   }
 });
+
+
+
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
