@@ -338,4 +338,11 @@ footer .credit a {
   .navbar .navbar-nav a:hover::after {
     transform: scaleX(0.2);
   }
+  .back-home {
+  color: rgb(148, 2, 2);
+  font-size: 1rem;
+  padding-top: 20px;
+  padding-bottom: 1px;
+  font-weight: 500;
+}
 }
