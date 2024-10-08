@@ -139,7 +139,7 @@ body {
 
 .hero .content .cta {
   margin-top: 1rem;
-  display: block;
+  display:  inline-block;
   padding: 1rem 3rem;
   font-size: 1.4rem;
   color: #fff;
