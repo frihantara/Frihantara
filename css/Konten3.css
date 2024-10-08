@@ -303,7 +303,9 @@ footer .credit a {
   }
   .pagination {
     width: 90%; /* Kurangi lebar pagination untuk layar lebih kecil */
+    justify-content: center; /* Pusatkan tombol pada layar lebih kecil */
     padding: 8px 0;
+  }
   }
 
   .prev {
