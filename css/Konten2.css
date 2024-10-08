@@ -147,6 +147,12 @@ body {
   font-family: "Times New Roman", Times, serif;
 }
 
+.foto-blog {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* footer */
 footer {
   background-color: var(--primary);
