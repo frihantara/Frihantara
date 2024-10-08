@@ -338,10 +338,10 @@ footer .credit a {
   .navbar .navbar-nav a:hover::after {
     transform: scaleX(0.2);
   }
-  .back-home {
-  font-size: 1rem;
-  padding-top: 40px;
-  padding-bottom: 1px;
-  font-weight: 500;
-}
+
+  .blog-heading {
+    padding-top: 5px;
+  }
+ 
+
 }
