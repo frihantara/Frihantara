@@ -15,9 +15,6 @@ document.addEventListener("click", function (e) {
   }
 });
 
-
-
-
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
