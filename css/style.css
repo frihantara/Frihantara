@@ -406,8 +406,8 @@ footer .credit a {
   width: 100%;
   padding: 15px 30px;
   position: absolute;
-  z-index: 10;
-  border: 1px solid red;
+  z-index: 99999;
+  border: 2px solid red;
 }
 
   .menu p {
