@@ -150,7 +150,7 @@ body {
 /* Prov */
 .pagination {
   display: flex;
-  justify-content: flex-end; /* Mepet ke kanan, bisa diganti 'center' untuk tengah */
+  justify-content: center; /* Mepet ke kanan, bisa diganti 'center' untuk tengah */
   align-items: center;
   width: 100%;
   padding: 10px 0;
