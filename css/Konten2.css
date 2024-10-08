@@ -153,6 +153,71 @@ body {
   display: block;
 }
 
+/* Prov */
+.pagination {
+  display: flex;
+  justify-content: center; /* Agar pagination di tengah secara horizontal */
+  align-items: center; /* Agar pagination di tengah secara vertikal */
+  width: 100%; /* Sesuaikan lebar pagination */
+  padding: 10px 0;
+}
+
+.prev {
+  margin-right: 20px; /* Tambahkan jarak di sebelah kanan tombol Previous */
+}
+
+.next {
+  margin-left: 20px; /* Tambahkan jarak di sebelah kiri tombol Next */
+}
+
+.pagination a {
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  align-items: center;
+}
+
+.prev,
+.next {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.prev .arrow,
+.next .arrow {
+  font-size: 20px;
+  color: black;
+  margin: 0 10px;
+}
+
+.prev .text-container,
+.next .text-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  color: #c00000; /* Warna merah mirip */
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.title {
+  font-size: 14px;
+  color: #000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+.separator {
+  height: 40px;
+  width: 1px;
+  background-color: #ddd; /* Garis pemisah di tengah */
+}
+
 /* footer */
 footer {
   background-color: var(--primary);
@@ -245,6 +310,18 @@ footer .credit a {
     margin: 0 auto;
     width: 95%;
   }
+
+  .pagination {
+    width: 90%; /* Kurangi lebar pagination untuk layar lebih kecil */
+    padding: 8px 0;
+  }
+
+  .prev,
+  .next {
+    font-size: 14px; /* Perkecil ukuran font tombol */
+    margin-right: 15px; /* Kurangi margin pada layar lebih kecil */
+    margin-left: 15px;
+  }
 }
 
 /* mobile */
@@ -302,5 +379,16 @@ footer .credit a {
   .sub-heading {
     margin: 0 auto;
     width: 95%;
+  }
+
+  .pagination {
+    flex-direction: column; /* Atur pagination menjadi vertikal pada layar sangat kecil */
+    width: 100%;
+  }
+
+  .prev,
+  .next {
+    font-size: 12px; /* Perkecil ukuran font untuk layar mobile */
+    margin: 5px 0; /* Beri jarak vertikal antar tombol */
   }
 }
