@@ -67,15 +67,13 @@ async function addComment() {
 
 // Fungsi untuk mengambil komentar dari JSON Server
 async function loadComments() {
+    console.log('Mencoba memuat komentar...'); // Log untuk debug
     const response = await fetch(apiUrl);
     const comments = await response.json();
-    const commentsList = document.getElementById('commentsList');
-    commentsList.innerHTML = ''; // Kosongkan sebelum memuat komentar baru
-
-    comments.forEach(comment => {
-        appendComment(comment);
-    });
+    console.log(comments); // Lihat komentar yang diambil
+    // ...
 }
+
 
 // Fungsi untuk menampilkan komentar di halaman
 function appendComment(comment) {
