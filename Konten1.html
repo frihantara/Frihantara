@@ -202,31 +202,32 @@
     <!-- Styling Komentar -->
     <style>
         .comment-section {
-            margin: 40px auto;
-            max-width: 600px;
-            text-align: center;
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+    margin: 40px auto;
+    max-width: 600px; /* Maksimal lebar section */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-        #comment-form input, #comment-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
+#comment-form input,
+#comment-form textarea {
+    width: 100%; /* Menggunakan 100% agar responsif */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
 
-        #comment-form button {
-            background-color: #f4a261;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 4px;
-        }
+#comment-form button {
+    background-color: #f4a261;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%; /* Pastikan tombol mengambil lebar penuh */
+}
 
         #commentsList {
             margin-top: 20px;
