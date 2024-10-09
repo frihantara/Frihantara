@@ -354,8 +354,8 @@ footer .credit a {
   }
 
   .post-text {
-    margin: 1.7rem auto;
-    width: 95%;
+   padding-left: 20px; /* Space di sisi kiri */
+    padding-right: 20px;
   }
   
   .sub-heading {
