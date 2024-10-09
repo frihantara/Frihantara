@@ -374,7 +374,7 @@ html {
   }
    .pagination {
     flex-direction: column; /* Atur pagination menjadi vertikal pada layar sangat kecil */
-    align-items: flex-end; /* Tetap di kanan pada layar mobile */
+    align-items: center; /* Tetap di kanan pada layar mobile */
     width: 100%;
   }
 
