@@ -254,24 +254,6 @@ body {
     color: #888;
 }
 
-/* Responsif */
-@media (max-width: 600px) {
-    .comment-section {
-        padding: 15px;
-    }
-
-    #comment-form input,
-    #comment-form textarea {
-        font-size: 14px;
-    }
-
-    #comment-form button {
-        font-size: 14px;
-    }
-
-    .comment-item {
-        font-size: 14px;
-    }
 
 /* footer */
 footer {
@@ -444,4 +426,22 @@ footer .credit a {
     font-size: 12px; /* Perkecil ukuran font untuk layar mobile */
     margin: 5px 0; /* Beri jarak vertikal pada tombol */
   }
+  /* Responsif */
+@media (max-width: 600px) {
+    .comment-section {
+        padding: 15px;
+    }
+
+    #comment-form input,
+    #comment-form textarea {
+        font-size: 14px;
+    }
+
+    #comment-form button {
+        font-size: 14px;
+    }
+
+    .comment-item {
+        font-size: 14px;
+    }
 }
