@@ -259,7 +259,7 @@ footer .credit a {
 
 /* tablet */
 @media (max-width: 768px) {
-  html {
+html {
     font-size: 65%;
   }
 
@@ -300,12 +300,13 @@ footer .credit a {
     margin: 0 auto;
     width: 95%;
   }
+  
   .pagination {
     width: 90%; /* Kurangi lebar pagination untuk layar lebih kecil */
     justify-content: center; /* Pusatkan tombol pada layar lebih kecil */
     padding: 8px 0;
   }
-  }
+  
 
   .prev {
     font-size: 14px; /* Perkecil ukuran font tombol */
