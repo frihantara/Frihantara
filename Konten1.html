@@ -96,37 +96,83 @@
     <!-- Prov end -->
 <!-- Komentar -->
 
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Komentar</title>
     <style>
-        /* Tambahkan styling untuk tombol */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #comment-section {
+            max-width: 600px;
+            margin: 0 auto; /* Agar comment-section berada di tengah secara horizontal */
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #comment-form {
+            margin-bottom: 20px;
+        }
+
+        #comment-form input, 
+        #comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
         #comment-form button {
-            background-color: #f4a261; /* Warna tombol yang kamu kirim sebelumnya */
+            background-color: #f4a261; /* Warna tombol sesuai gambar yang diberikan */
             color: white;
             border: none;
             padding: 10px 20px;
             cursor: pointer;
             border-radius: 4px;
         }
+
+        /* Komentar berada di tengah */
+        #commentsList {
+            text-align: center; /* Agar teks komentar berada di tengah */
+        }
+
+        .comment-item {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #fafafa;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: inline-block; /* Agar komentar terlihat seperti blok kecil di tengah */
+            width: 100%; /* Agar lebar komentar tidak melebihi area */
+            max-width: 500px; /* Maksimal lebar komentar */
+        }
     </style>
 </head>
 <body>
 
-<h2>Tambah Komentar</h2>
+<div id="comment-section">
+    <h2>Tambah Komentar</h2>
 
-<div id="comment-form">
-    <input type="text" id="name" placeholder="Nama">
-    <textarea id="comment" placeholder="Komentar"></textarea>
-    <button onclick="addComment()">Tambahkan</button>
+    <div id="comment-form">
+        <input type="text" id="name" placeholder="Nama">
+        <textarea id="comment" placeholder="Komentar"></textarea>
+        <button onclick="addComment()">Tambahkan</button>
+    </div>
+
+    <div id="commentsList"></div>
 </div>
 
-<div id="commentsList"></div>
-
-<script src="script.js"></script> <!-- Sambungkan ke file JavaScript -->
+<script src="script.js"></script>
 </body>
 </html>
 
