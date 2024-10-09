@@ -30,119 +30,77 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-const apiUrl = 'http://localhost:3000/comments'; // URL JSON Server
+const apiUrl = "http://localhost:3000/comments"; // API JSON Server
+const currentUserName = prompt(
+  "Masukkan nama Anda untuk mengidentifikasi komentar:"
+);
 
 // Fungsi untuk menambahkan komentar
 async function addComment() {
-    const name = document.getElementById('name').value;
-    const comment = document.getElementById('comment').value;
+  const name = document.getElementById("name").value;
+  const comment = document.getElementById("comment").value;
 
-    if (name && comment) {
-        const newComment = {
-            name: name,
-            comment: comment,
-            timestamp: new Date().toISOString() // Menyimpan waktu komentar ditambahkan
-        };
+  if (name && comment) {
+    const newComment = {
+      name: name,
+      comment: comment,
+      timestamp: new Date(),
+    };
 
-        // Kirim komentar ke JSON Server (POST request)
-        const response = await fetch(apiUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(newComment)
-        });
+    // Kirim komentar ke JSON Server
+    const response = await fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newComment),
+    });
 
-        loadComments(); // Setelah menambah komentar, refresh daftar komentar
-        document.getElementById('name').value = ''; // Kosongkan input
-        document.getElementById('comment').value = ''; // Kosongkan input
-    } else {
-        alert("Nama dan Komentar tidak boleh kosong!");
-    }
+    loadComments();
+    document.getElementById("name").value = "";
+    document.getElementById("comment").value = "";
+  } else {
+    alert("Nama dan Komentar tidak boleh kosong!");
+  }
 }
 
 // Fungsi untuk mengambil komentar dari JSON Server
 async function loadComments() {
-    const response = await fetch(apiUrl);
-    const comments = await response.json();
-    const commentsList = document.getElementById('commentsList');
-    commentsList.innerHTML = ''; // Kosongkan daftar sebelum memuat komentar baru
+  const response = await fetch(apiUrl);
+  const comments = await response.json();
+  const commentsList = document.getElementById("commentsList");
+  commentsList.innerHTML = "<h3>Hasil Komentar</h3>";
 
-    comments.forEach(comment => {
-        appendComment(comment); // Tampilkan setiap komentar
-    });
+  comments.forEach((comment) => {
+    appendComment(comment);
+  });
 }
 
-// Fungsi untuk menampilkan komentar di halaman
+// Fungsi untuk menampilkan komentar
 function appendComment(comment) {
-    const commentsList = document.getElementById('commentsList');
-    const commentElement = document.createElement('div');
-    commentElement.className = 'comment-item';
-    commentElement.innerHTML = `
+  const commentsList = document.getElementById("commentsList");
+  const commentElement = document.createElement("div");
+  commentElement.className = "comment-item";
+  commentElement.dataset.author = comment.name === currentUserName;
+
+  commentElement.innerHTML = `
         <p><strong>${comment.name}</strong>: ${comment.comment}</p>
-        <small>Ditambahkan pada: ${new Date(comment.timestamp).toLocaleString()}</small>
+        <span class="delete-btn" onclick="deleteComment(${comment.id}, this)">Hapus</span>
     `;
-    commentsList.appendChild(commentElement);
+
+  commentsList.appendChild(commentElement);
 }
 
-// Load semua komentar saat halaman dimuat
-window.onload = loadComments;
-
-const apiUrl = 'http://localhost:3000/comments'; // URL JSON Server
-
-// Fungsi untuk menambahkan komentar
-async function addComment() {
-    const name = document.getElementById('name').value;
-    const comment = document.getElementById('comment').value;
-
-    if (name && comment) {
-        const newComment = {
-            name: name,
-            comment: comment,
-            timestamp: new Date().toISOString() // Menyimpan waktu komentar ditambahkan
-        };
-
-        // Kirim komentar ke JSON Server (POST request)
-        const response = await fetch(apiUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(newComment)
-        });
-
-        loadComments(); // Setelah menambah komentar, refresh daftar komentar
-        document.getElementById('name').value = ''; // Kosongkan input
-        document.getElementById('comment').value = ''; // Kosongkan input
-    } else {
-        alert("Nama dan Komentar tidak boleh kosong!");
-    }
-}
-
-// Fungsi untuk mengambil komentar dari JSON Server
-async function loadComments() {
-    const response = await fetch(apiUrl);
-    const comments = await response.json();
-    const commentsList = document.getElementById('commentsList');
-    commentsList.innerHTML = ''; // Kosongkan daftar sebelum memuat komentar baru
-
-    comments.forEach(comment => {
-        appendComment(comment); // Tampilkan setiap komentar
+// Fungsi untuk menghapus komentar
+async function deleteComment(commentId, element) {
+  if (confirm("Apakah Anda yakin ingin menghapus komentar ini?")) {
+    await fetch(`${apiUrl}/${commentId}`, {
+      method: "DELETE",
     });
+
+    element.parentElement.remove();
+  }
 }
 
-// Fungsi untuk menampilkan komentar di halaman
-function appendComment(comment) {
-    const commentsList = document.getElementById('commentsList');
-    const commentElement = document.createElement('div');
-    commentElement.className = 'comment-item';
-    commentElement.innerHTML = `
-        <p><strong>${comment.name}</strong>: ${comment.comment}</p>
-        <small>Ditambahkan pada: ${new Date(comment.timestamp).toLocaleString()}</small>
-    `;
-    commentsList.appendChild(commentElement);
-}
-
-// Load semua komentar saat halaman dimuat
+// Load comments saat halaman dimuat
 window.onload = loadComments;
-
