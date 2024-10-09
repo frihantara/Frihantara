@@ -30,90 +30,64 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-const apiUrl = "http://localhost:3000/comments"; // API JSON Server
-const currentUserName = prompt(
-  "Masukkan nama Anda untuk mengidentifikasi komentar:"
-);
+const apiUrl = 'http://localhost:3000/comments'; // URL JSON Server
 
 // Fungsi untuk menambahkan komentar
 async function addComment() {
-  const name = document.getElementById("name").value;
-  const comment = document.getElementById("comment").value;
+    const name = document.getElementById('name').value;
+    const comment = document.getElementById('comment').value;
 
-  if (name && comment) {
-    const newComment = {
-      name: name,
-      comment: comment,
-      timestamp: new Date(),
-    };
+    if (name && comment) {
+        const newComment = {
+            name: name,
+            comment: comment,
+            timestamp: new Date().toISOString()
+        };
 
-    // Kirim komentar ke JSON Server
-    const response = await fetch(apiUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newComment),
-    });
+        // Kirim komentar ke JSON Server (POST request)
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newComment)
+        });
 
-    loadComments();
-    document.getElementById("name").value = "";
-    document.getElementById("comment").value = "";
-  } else {
-    alert("Nama dan Komentar tidak boleh kosong!");
-  }
+        if (response.ok) {
+            loadComments(); // Refresh daftar komentar
+            document.getElementById('name').value = ''; // Kosongkan input
+            document.getElementById('comment').value = ''; // Kosongkan input
+        } else {
+            alert("Gagal menambahkan komentar!");
+        }
+    } else {
+        alert("Nama dan Komentar tidak boleh kosong!");
+    }
 }
 
- const apiUrl = 'http://localhost:3000/comments'; // URL JSON Server
+// Fungsi untuk mengambil komentar dari JSON Server
+async function loadComments() {
+    const response = await fetch(apiUrl);
+    const comments = await response.json();
+    const commentsList = document.getElementById('commentsList');
+    commentsList.innerHTML = ''; // Kosongkan sebelum memuat komentar baru
 
-        async function addComment() {
-            const name = document.getElementById('name').value;
-            const comment = document.getElementById('comment').value;
+    comments.forEach(comment => {
+        appendComment(comment);
+    });
+}
 
-            if (name && comment) {
-                const newComment = {
-                    name: name,
-                    comment: comment,
-                    timestamp: new Date().toISOString()
-                };
+// Fungsi untuk menampilkan komentar di halaman
+function appendComment(comment) {
+    const commentsList = document.getElementById('commentsList');
+    const commentElement = document.createElement('div');
+    commentElement.className = 'comment-item';
+    commentElement.innerHTML = `
+        <p><strong>${comment.name}</strong>: ${comment.comment}</p>
+        <small>Ditambahkan pada: ${new Date(comment.timestamp).toLocaleString()}</small>
+    `;
+    commentsList.appendChild(commentElement);
+}
 
-                // Kirim komentar ke JSON Server
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(newComment)
-                });
-
-                loadComments(); // Refresh daftar komentar
-                document.getElementById('name').value = ''; // Kosongkan input
-                document.getElementById('comment').value = ''; // Kosongkan input
-            } else {
-                alert("Nama dan Komentar tidak boleh kosong!");
-            }
-        }
-
-        async function loadComments() {
-            const response = await fetch(apiUrl);
-            const comments = await response.json();
-            const commentsList = document.getElementById('commentsList');
-            commentsList.innerHTML = ''; // Kosongkan sebelum memuat komentar baru
-
-            comments.forEach(comment => {
-                appendComment(comment);
-            });
-        }
-
-        function appendComment(comment) {
-            const commentsList = document.getElementById('commentsList');
-            const commentElement = document.createElement('div');
-            commentElement.className = 'comment-item';
-            commentElement.innerHTML = `
-                <p><strong>${comment.name}</strong>: ${comment.comment}</p>
-                <small>Ditambahkan pada: ${new Date(comment.timestamp).toLocaleString()}</small>
-            `;
-            commentsList.appendChild(commentElement);
-        }
-
-        window.onload = loadComments;
+// Muat komentar ketika halaman dibuka
+window.onload = loadComments;
