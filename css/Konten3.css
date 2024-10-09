@@ -316,7 +316,7 @@ html {
 
 /* mobile */
 @media (max-width: 450px) {
-  html {
+ html {
     font-size: 60%;
   }
 
@@ -362,16 +362,15 @@ html {
   }
 
   .post-text {
-   margin: 1.7rem auto;
-  width: 95%;
-  padding-left: 20px !important; /* Tambahkan !important */
-  padding-right: 20px !important; /* Tambahkan !important */
+    margin: 1.7rem auto;
+    width: 95%;
   }
   
   .sub-heading {
     margin: 0 auto;
     width: 95%;
   }
+
   .pagination {
     flex-direction: column; /* Atur pagination menjadi vertikal pada layar sangat kecil */
     align-items: flex-start; /* Tetap di kiri pada layar mobile */
