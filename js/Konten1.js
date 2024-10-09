@@ -64,43 +64,56 @@ async function addComment() {
   }
 }
 
-// Fungsi untuk mengambil komentar dari JSON Server
-async function loadComments() {
-  const response = await fetch(apiUrl);
-  const comments = await response.json();
-  const commentsList = document.getElementById("commentsList");
-  commentsList.innerHTML = "<h3>Hasil Komentar</h3>";
+ const apiUrl = 'http://localhost:3000/comments'; // URL JSON Server
 
-  comments.forEach((comment) => {
-    appendComment(comment);
-  });
-}
+        async function addComment() {
+            const name = document.getElementById('name').value;
+            const comment = document.getElementById('comment').value;
 
-// Fungsi untuk menampilkan komentar
-function appendComment(comment) {
-  const commentsList = document.getElementById("commentsList");
-  const commentElement = document.createElement("div");
-  commentElement.className = "comment-item";
-  commentElement.dataset.author = comment.name === currentUserName;
+            if (name && comment) {
+                const newComment = {
+                    name: name,
+                    comment: comment,
+                    timestamp: new Date().toISOString()
+                };
 
-  commentElement.innerHTML = `
-        <p><strong>${comment.name}</strong>: ${comment.comment}</p>
-        <span class="delete-btn" onclick="deleteComment(${comment.id}, this)">Hapus</span>
-    `;
+                // Kirim komentar ke JSON Server
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(newComment)
+                });
 
-  commentsList.appendChild(commentElement);
-}
+                loadComments(); // Refresh daftar komentar
+                document.getElementById('name').value = ''; // Kosongkan input
+                document.getElementById('comment').value = ''; // Kosongkan input
+            } else {
+                alert("Nama dan Komentar tidak boleh kosong!");
+            }
+        }
 
-// Fungsi untuk menghapus komentar
-async function deleteComment(commentId, element) {
-  if (confirm("Apakah Anda yakin ingin menghapus komentar ini?")) {
-    await fetch(`${apiUrl}/${commentId}`, {
-      method: "DELETE",
-    });
+        async function loadComments() {
+            const response = await fetch(apiUrl);
+            const comments = await response.json();
+            const commentsList = document.getElementById('commentsList');
+            commentsList.innerHTML = ''; // Kosongkan sebelum memuat komentar baru
 
-    element.parentElement.remove();
-  }
-}
+            comments.forEach(comment => {
+                appendComment(comment);
+            });
+        }
 
-// Load comments saat halaman dimuat
-window.onload = loadComments;
+        function appendComment(comment) {
+            const commentsList = document.getElementById('commentsList');
+            const commentElement = document.createElement('div');
+            commentElement.className = 'comment-item';
+            commentElement.innerHTML = `
+                <p><strong>${comment.name}</strong>: ${comment.comment}</p>
+                <small>Ditambahkan pada: ${new Date(comment.timestamp).toLocaleString()}</small>
+            `;
+            commentsList.appendChild(commentElement);
+        }
+
+        window.onload = loadComments;
