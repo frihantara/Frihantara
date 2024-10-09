@@ -202,6 +202,77 @@ body {
   max-width: 150px;
 }
 
+/* Styling Form Komentar */
+#comment-form input,
+#comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#comment-form button {
+    background-color: #f4a261;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#comment-form button:hover {
+    background-color: #e08944;
+}
+
+/* Styling Komentar */
+#commentsList {
+    margin-top: 20px;
+}
+
+.comment-item {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: left;
+    font-size: 16px;
+}
+
+.comment-item p {
+    margin: 0;
+    padding: 0;
+}
+
+.comment-item small {
+    display: block;
+    margin-top: 5px;
+    color: #888;
+}
+
+/* Responsif */
+@media (max-width: 600px) {
+    .comment-section {
+        padding: 15px;
+    }
+
+    #comment-form input,
+    #comment-form textarea {
+        font-size: 14px;
+    }
+
+    #comment-form button {
+        font-size: 14px;
+    }
+
+    .comment-item {
+        font-size: 14px;
+    }
+
 /* footer */
 footer {
   background-color: var(--primary);
