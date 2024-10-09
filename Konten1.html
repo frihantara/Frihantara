@@ -94,17 +94,22 @@
       </div>
     </body>
     <!-- Prov end -->
-<!-- Bagian Komentar -->
+
+
+    <!-- Bagian Komentar -->
     <section class="comment-section">
         <h2>Tambah Komentar</h2>
         <div id="comment-form">
-            <input type="text" id="name" placeholder="Nama">
-            <textarea id="comment" placeholder="Komentar"></textarea>
+            <input type="text" id="name" placeholder="Nama" required>
+            <textarea id="comment" placeholder="Komentar" required></textarea>
             <button onclick="addComment()">Tambahkan</button>
         </div>
         <div id="commentsList"></div>
     </section>
-<!--     komentar end -->
+
+    <script src="js/Konten1.js"></script>
+
+    <!--     komentar end -->
 
     <!-- footer start -->
     <footer>
@@ -142,48 +147,4 @@
     <script src="js/Konten1.js"></script>
   </head>
   <body></body>
- 
-    <!-- Styling Komentar -->
-    <style>
-        .comment-section {
-    margin: 40px auto;
-    max-width: 600px; /* Maksimal lebar section */
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-#comment-form input,
-#comment-form textarea {
-    width: 100%; /* Menggunakan 100% agar responsif */
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-#comment-form button {
-    background-color: #f4a261;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 4px;
-    width: 100%; /* Pastikan tombol mengambil lebar penuh */
-}
-
-        #commentsList {
-            margin-top: 20px;
-        }
-
-        .comment-item {
-            margin: 10px 0;
-            padding: 10px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            text-align: left;
-        }
-    </style>
 </html>
