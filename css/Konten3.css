@@ -354,10 +354,10 @@ footer .credit a {
   }
 
   .post-text {
-    margin: 1.7rem auto;
-    width: 95%;
-    padding-left: 20px; /* Tambahkan jarak kiri */
-    padding-right: 20px; /* Tambahkan jarak kanan */
+   margin: 1.7rem auto;
+  width: 95%;
+  padding-left: 20px !important; /* Tambahkan !important */
+  padding-right: 20px !important; /* Tambahkan !important */
   }
   
   .sub-heading {
