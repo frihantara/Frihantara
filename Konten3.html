@@ -222,6 +222,162 @@
     
     <!-- Prov End-->
 
+    <!-- Komentar -->
+    <section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kolom Komentar</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .comment-section {
+        margin: 20px;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      button {
+        background-color: #b6895b; /* Warna jingga */
+        color: white; /* Warna teks putih */
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .comments-list {
+        margin-top: 20px;
+      }
+      .comment-item {
+        background-color: #f9f9f9;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        position: relative;
+      }
+      .delete-btn {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="comment-section">
+      <h2>Tinggalkan Komentar</h2>
+      <input type="text" id="name" placeholder="Nama" />
+      <textarea id="comment" placeholder="Komentar"></textarea>
+      <button onclick="addComment()">Tambahkan</button>
+
+      <div class="comments-list" id="commentsList">
+        <h3>Hasil Komentar</h3>
+      </div>
+    </div>
+
+    <script>
+      // Variabel untuk menyimpan nama pengguna yang sedang aktif
+      let currentUser = "";
+
+      // Dapatkan URL saat ini untuk digunakan sebagai kunci penyimpanan
+      const currentPageKey = window.location.href;
+
+      function addComment() {
+        const name = document.getElementById("name").value;
+        const comment = document.getElementById("comment").value;
+
+        if (name && comment) {
+          currentUser = name; // Set nama pengguna aktif
+
+          const commentItem = document.createElement("div");
+          commentItem.classList.add("comment-item");
+          commentItem.innerHTML = `<strong>${name}</strong><p>${comment}</p><button class="delete-btn" onclick="deleteComment(this)">Hapus</button>`;
+
+          document.getElementById("commentsList").appendChild(commentItem);
+
+          // Simpan di localStorage dengan kunci unik berdasarkan halaman
+          saveComment(name, comment);
+
+          // Reset input fields
+          document.getElementById("name").value = "";
+          document.getElementById("comment").value = "";
+
+          // Tampilkan tombol hapus hanya untuk pengguna yang sama
+          showDeleteButtonForUser(commentItem, name);
+        } else {
+          alert("Nama dan Komentar tidak boleh kosong!");
+        }
+      }
+
+      function deleteComment(element) {
+        if (confirm("Apakah Anda yakin ingin menghapus komentar ini?")) {
+          const commentItem = element.parentElement;
+          const name = commentItem.querySelector("strong").textContent;
+          const comment = commentItem.querySelector("p").textContent;
+
+          // Hapus dari localStorage
+          removeComment(name, comment);
+
+          // Hapus dari DOM
+          commentItem.remove();
+        }
+      }
+
+      function saveComment(name, comment) {
+        const comments = JSON.parse(localStorage.getItem(currentPageKey)) || [];
+        comments.push({ name, comment });
+        localStorage.setItem(currentPageKey, JSON.stringify(comments));
+      }
+
+      function removeComment(name, comment) {
+        let comments = JSON.parse(localStorage.getItem(currentPageKey)) || [];
+        comments = comments.filter(
+          (c) => c.name !== name || c.comment !== comment
+        );
+        localStorage.setItem(currentPageKey, JSON.stringify(comments));
+      }
+
+      function loadComments() {
+        const comments = JSON.parse(localStorage.getItem(currentPageKey)) || [];
+        comments.forEach((c) => {
+          const commentItem = document.createElement("div");
+          commentItem.classList.add("comment-item");
+          commentItem.innerHTML = `<strong>${c.name}</strong><p>${c.comment}</p><button class="delete-btn" onclick="deleteComment(this)">Hapus</button>`;
+          document.getElementById("commentsList").appendChild(commentItem);
+
+          // Tampilkan tombol hapus hanya untuk pengguna yang sesuai
+          showDeleteButtonForUser(commentItem, c.name);
+        });
+      }
+
+      function showDeleteButtonForUser(commentItem, commentName) {
+        // Tampilkan tombol hapus jika nama komentar sesuai dengan pengguna aktif
+        if (commentName === currentUser) {
+          const deleteButton = commentItem.querySelector(".delete-btn");
+          deleteButton.style.display = "block";
+        }
+      }
+
+      // Load comments when the page is loaded
+      window.onload = loadComments;
+    </script>
+  </body>
+</section>
+
+
     <!-- footer start -->
     <footer>
       <div class="socials">
