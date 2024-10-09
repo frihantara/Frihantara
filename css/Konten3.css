@@ -357,12 +357,11 @@ footer .credit a {
     margin: 1.7rem auto;
     width: 95%;
   }
-
+  
   .sub-heading {
     margin: 0 auto;
     width: 95%;
   }
-
   .pagination {
     flex-direction: column; /* Atur pagination menjadi vertikal pada layar sangat kecil */
     align-items: flex-start; /* Tetap di kiri pada layar mobile */
