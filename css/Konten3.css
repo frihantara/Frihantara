@@ -129,6 +129,7 @@ body {
   object-position: center;
 }
 
+/* bagian isi */
 .post-content {
   margin-top: 10rem !important;
 }
@@ -144,6 +145,12 @@ body {
   line-height: 1.9rem;
   text-align: justify;
   font-family: "Times New Roman", Times, serif;
+}
+
+.foto-blog {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 /* Prov */
 .pagination {
