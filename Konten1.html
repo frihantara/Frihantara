@@ -96,21 +96,59 @@
     <!-- Prov end -->
 <!-- Komentar -->
 
-    <!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Komentar</title>
     <style>
-        /* Tambahkan styling untuk tombol */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #comment-form {
+            margin-bottom: 20px;
+        }
+
+        #comment-form input,
+        #comment-form textarea {
+            display: block;
+            margin-bottom: 10px;
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
         #comment-form button {
-            background-color: #f4a261; /* Warna tombol yang kamu kirim sebelumnya */
+            background-color: #f4a261; /* Warna tombol yang sesuai dengan gambar yang kamu kirimkan */
             color: white;
             border: none;
             padding: 10px 20px;
             cursor: pointer;
             border-radius: 4px;
+        }
+
+        #commentsList {
+            margin-top: 20px;
+        }
+
+        .comment-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+
+        .delete-btn {
+            color: red;
+            cursor: pointer;
+            display: none; /* Hanya pemilik komentar yang bisa melihat ini */
+        }
+
+        .comment-item[data-author="true"] .delete-btn {
+            display: inline; /* Tampilkan tombol hapus jika author */
         }
     </style>
 </head>
@@ -126,7 +164,8 @@
 
 <div id="commentsList"></div>
 
-<script src="konten1.js"></script> <!-- Sambungkan ke file JavaScript -->
+<script src="script.js"></script>
+
 </body>
 </html>
 
