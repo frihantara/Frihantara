@@ -298,13 +298,14 @@ footer .credit a {
 
   .pagination {
     width: 90%; /* Kurangi lebar pagination untuk layar lebih kecil */
-    justify-content: center; /* Pusatkan tombol pada layar lebih kecil */
     padding: 8px 0;
   }
 
+  .prev,
   .next {
     font-size: 14px; /* Perkecil ukuran font tombol */
-    margin-left: 15px; /* Kurangi margin */
+    margin-right: 15px; /* Kurangi margin pada layar lebih kecil */
+    margin-left: 15px;
   }
 }
 
@@ -359,37 +360,20 @@ footer .credit a {
     margin: 1.7rem auto;
     width: 95%;
   }
-
+  
   .sub-heading {
     margin: 0 auto;
     width: 95%;
   }
-   .pagination {
+
+  .pagination {
     flex-direction: column; /* Atur pagination menjadi vertikal pada layar sangat kecil */
-    align-items: flex-end; /* Tetap di kanan pada layar mobile */
     width: 100%;
   }
 
+  .prev,
   .next {
     font-size: 12px; /* Perkecil ukuran font untuk layar mobile */
-    margin: 5px 0; /* Beri jarak vertikal pada tombol */
+    margin: 5px 0; /* Beri jarak vertikal antar tombol */
   }
-  /* Responsif */
-@media (max-width: 600px) {
-    .comment-section {
-        padding: 15px;
-    }
-
-    #comment-form input,
-    #comment-form textarea {
-        font-size: 14px;
-    }
-
-    #comment-form button {
-        font-size: 14px;
-    }
-
-    .comment-item {
-        font-size: 14px;
-    }
 }
