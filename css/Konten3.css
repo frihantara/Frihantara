@@ -246,10 +246,6 @@ button {
     transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #005f73;
-}
-
 .comments-list {
     margin-top: 20px;
 }
