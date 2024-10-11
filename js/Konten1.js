@@ -29,3 +29,36 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     }
   });
 });
+
+document.getElementById('submit-btn').addEventListener('click', function () {
+    var commentInput = document.getElementById('comment-input');
+    var commentText = commentInput.value.trim();
+
+    if (commentText !== "") {
+        var commentList = document.getElementById('comments-list');
+
+        // Membuat elemen div untuk komentar
+        var commentDiv = document.createElement('div');
+        commentDiv.className = 'comment';
+
+        // Menambahkan teks komentar
+        var commentContent = document.createElement('p');
+        commentContent.className = 'comment-text';
+        commentContent.textContent = commentText;
+
+        // Menambahkan waktu komentar
+        var commentTime = document.createElement('p');
+        commentTime.className = 'comment-time';
+        commentTime.textContent = new Date().toLocaleString();
+
+        // Menggabungkan teks dan waktu ke div komentar
+        commentDiv.appendChild(commentContent);
+        commentDiv.appendChild(commentTime);
+
+        // Menambahkan komentar ke daftar
+        commentList.appendChild(commentDiv);
+
+        // Kosongkan kotak input
+        commentInput.value = '';
+    }
+});
