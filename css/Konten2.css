@@ -156,18 +156,18 @@ body {
 /* Prov */
 .pagination {
   display: flex;
-  justify-content: center; /* Agar pagination di tengah secara horizontal */
-  align-items: center; /* Agar pagination di tengah secara vertikal */
-  width: 100%; /* Sesuaikan lebar pagination */
+  justify-content: center; 
+  align-items: center; 
+  width: 100%; 
   padding: 10px 0;
 }
 
 .prev {
-  margin-right: 20px; /* Tambahkan jarak di sebelah kanan tombol Previous */
+  margin-right: 20px; 
 }
 
 .next {
-  margin-left: 20px; /* Tambahkan jarak di sebelah kiri tombol Next */
+  margin-left: 20px; 
 }
 
 .pagination a {
@@ -216,66 +216,6 @@ body {
   height: 40px;
   width: 1px;
   background-color: #ddd; /* Garis pemisah di tengah */
-}
-
-/* komen */
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    text-align: center;
-}
-
-.comment-box {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-}
-
-textarea {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    resize: none;
-    height: 80px;
-    margin-bottom: 10px;
-}
-
-button {
-    background-color: #b6895b;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.comments-list {
-    margin-top: 20px;
-}
-
-.comment {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.comment .comment-text {
-    margin-bottom: 5px;
-}
-
-.comment .comment-time {
-    font-size: 0.8em;
-    color: #888;
 }
 
 /* footer */
