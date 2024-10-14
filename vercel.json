@@ -3,7 +3,7 @@
     { "source": "/Daftar-Blog", "destination": "/Blog.html" },
     { "source": "/Profile", "destination": "/Profile.html" },
     { "source": "/Dari-Stasiun-Hingga-Menyentuh-Awan", "destination": "/Konten1.html" },
-    { "source": "/Konten-2", "destination": "/Konten2.html" },
+    { "source": "/Transit-Singkat-di-Singapura", "destination": "/Konten2.html" },
     { "source": "/Konten-3", "destination": "/Konten3.html" },
     { "source": "/Konten-4", "destination": "/Konten4.html" },
     { "source": "/Konten-5", "destination": "/Konten5.html" },
