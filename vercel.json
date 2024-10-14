@@ -2,7 +2,7 @@
   "rewrites": [
     { "source": "/Daftar-Blog", "destination": "/Blog.html" },
     { "source": "/Profile", "destination": "/Profile.html" },
-    { "source": "/Konten-1", "destination": "/Konten1.html" },
+    { "source": "/Dari-Stasiun-Hingga-Menyentuh-Awan", "destination": "/Konten1.html" },
     { "source": "/Konten-2", "destination": "/Konten2.html" },
     { "source": "/Konten-3", "destination": "/Konten3.html" },
     { "source": "/Konten-4", "destination": "/Konten4.html" },
