@@ -147,10 +147,34 @@ body {
   font-family: "Times New Roman", Times, serif;
 }
 
+.list-text {
+  list-style-type: disc;
+  padding-left: 20px;
+  text-align: justify;
+}
+
+.list-text li {
+  margin: 1.7rem 0;
+  font-size: 1.5rem;
+  color: black;
+  font-family: "Times New Roman";
+  line-height: 1.9rem;
+  word-wrap: break-word;
+}
+
 .foto-blog {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+blockquote {
+  font-style: italic;
+  background-color: #ecf0f1;
+  padding: 10px;
+  border-left: 4px solid #2980b9;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 /* Prov */
@@ -322,6 +346,10 @@ footer .credit a {
     margin-right: 15px; /* Kurangi margin pada layar lebih kecil */
     margin-left: 15px;
   }
+
+  .list-text li {
+  font-size: 150%;
+  }
 }
 
 /* mobile */
@@ -390,5 +418,9 @@ footer .credit a {
   .next {
     font-size: 12px; /* Perkecil ukuran font untuk layar mobile */
     margin: 5px 0; /* Beri jarak vertikal antar tombol */
+  }
+
+  .list-text li {
+  font-size: 130%;
   }
 }
