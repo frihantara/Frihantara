@@ -79,6 +79,15 @@ h1,h2,h3,h4,h5,h6 {
 	letter-spacing: 0.5px;
 }
 
+blockquote {
+  font-style: italic;
+  color: #555;
+  border-left: 4px solid #2c3e50;
+  padding-left: 10px;
+  margin: 20px 0;
+  background-color: #f0f0f0;
+}
+
 #preloader {
   overflow: hidden;
   background: #f48840;
